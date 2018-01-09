@@ -11,7 +11,7 @@
 
 The smallest and simplest unit in k8s. Pod could include one or more container, they share a `ClusterIP`.
 
-Usually use Controller manage Pod. But now we learn how to use Pod only.
+Usually use controller(e.g., Deployments) manage Pod. But now we learn how to use Pod only.
 
 #### pod.yml
 
@@ -56,3 +56,18 @@ myapp-pod   1/1       Running   0          1m
 $ kubectl logs myapp-pod
 Hello Kubernetes!
 ```
+
+`kubectl exec ...` exec some thing.
+
+```shell
+$ kubectl exec -it myapp-pod /bin/sh
+/ # ls
+bin   dev   etc   home  proc  root  sys   tmp   usr   var
+/ # exit
+$ kubectl exec -it myapp-pod pwd
+/
+$ kubectl exec -t myapp-pod pwd
+/
+```
+
+Network will notes in `Service` section.
