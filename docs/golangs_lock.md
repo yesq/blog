@@ -1,4 +1,4 @@
-# `sync.Mutex` of `Golang`
+# Golang's lock
 
 Learn usage of `sync.Mutex` from [A Tour of Go](https://tour.golang.org/concurrency/9).
 
