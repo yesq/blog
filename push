@@ -1,6 +1,8 @@
 #! /bin/sh
 set -uex
 
+cd ./site
+
 git add .
 git commit -m "update"
 git push
