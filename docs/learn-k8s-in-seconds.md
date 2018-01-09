@@ -11,3 +11,48 @@
 
 The smallest and simplest unit in k8s. Pod could include one or more container, they share a `ClusterIP`.
 
+Usually use Controller manage Pod. But now we learn how to use Pod only.
+
+#### pod.yml
+
+```yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox
+    command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
+```
+
+`apiVersion: v1` declaration we use which version api.
+
+`kind: Pod` declaration the type of object.
+
+`metadata: ` set `name` and `labels`.
+
+`spec: ` define the specific of object. If type is Pod, `spec` should include a `containers` to define specific of container.
+
+Two `name` of `containers` and `metadata` is different. Metadata's name is unique name of pod in kubernetes. Containers' name will be a part of docker container's name.
+
+Now use `kubectl` communicate with kubernetes.
+
+`kubectl get pods` list all pods.
+
+```shell
+$ kubectl get pods
+NAME        READY     STATUS    RESTARTS   AGE
+myapp-pod   1/1       Running   0          1m
+# `kubectl get pods myapp-pod` could filte one pod by Pod name
+```
+
+`kubectl logs myapp-pod` will show logs of the pod.
+
+```shell
+$ kubectl logs myapp-pod
+Hello Kubernetes!
+```
