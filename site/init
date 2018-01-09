@@ -1,0 +1,6 @@
+#! /bin/sh
+set -uex
+
+git init
+git remote add origin https://github.com/yesq/yesq.github.io.git
+git add . && git commit -m "init and force update blog" && git push --force --set-upstream origin master
