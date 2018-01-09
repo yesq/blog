@@ -13,3 +13,7 @@ docker run --rm -it -v `pwd`:/docs squidfunk/mkdocs-material build
 docker run --rm -it -v ~/.ssh:/root/.ssh -v `pwd`:/docs squidfunk/mkdocs-material gh-deploy
 
 ```
+
+## Add remote
+
+`git remote add origin https://github.com/yesq/yesq.github.io.git`
